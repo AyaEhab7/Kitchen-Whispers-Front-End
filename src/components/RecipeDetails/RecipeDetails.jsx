@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import * as recipeService from "../../services/recipeService";
 import { AuthedUserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 import CommentForm from "../CommentForm/CommentForm";
 
@@ -20,10 +21,7 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await recipeService.createComment(
-      recipeId,
-      commentFormData
-    );
+    const newComment = await recipeService.createComment(recipeId, commentFormData);
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
@@ -50,9 +48,8 @@ const RecipeDetails = (props) => {
 
         {recipe.author._id === user._id && (
           <>
-            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
-              Delete
-            </button>
+            <Link to={`/recipes/${recipeId}/edit`}>Edit</Link>
+            <button onClick={() => props.handleDeleteRecipe(recipeId)}>Delete</button>
           </>
         )}
       </section>
