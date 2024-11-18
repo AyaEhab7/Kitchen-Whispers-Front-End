@@ -18,7 +18,8 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    console.log('commentFormData', commentFormData);
+    const newComment = await recipeService.createComment(recipeId, commentFormData);
+    setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
 
@@ -54,7 +55,7 @@ const RecipeDetails = (props) => {
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
             </header>
-            <p>{comment.content}</p>
+            <p>{comment.text}</p>
           </article>
         ))}
       </section>
