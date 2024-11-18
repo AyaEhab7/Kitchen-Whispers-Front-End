@@ -32,6 +32,21 @@ const RecipeDetails = (props) => {
           <strong>Difficulty:</strong> {recipe.difficulty}
         </p>
       </section>
+      <section>
+        <h2>Comments</h2>
+        {!recipe.comments.length && <p>No comments yet</p>}
+        {recipe.comments.map((comment) => (
+          <article key={comment._id}>
+            <header>
+              <p>
+                {comment.author.username} posted on
+                {new Date(comment.createdAt).toLocaleDateString()}
+              </p>
+            </header>
+            <p>{comment.content}</p>
+          </article>
+        ))}
+      </section>
     </main>
   );
 };
