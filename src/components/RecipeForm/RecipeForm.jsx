@@ -20,7 +20,7 @@ const RecipeForm = (props) => {
     if (recipeId) {
       props.handleUpdateRecipe(recipeId, formData);
     } else {
-      props.handleUpdateRecipe(formData);
+      props.handleAddRecipe(formData);
     }
   };
 
