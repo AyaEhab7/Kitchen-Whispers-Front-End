@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -8,6 +8,7 @@ import SigninForm from "./components/SigninForm/SigninForm";
 import * as authService from "../src/services/authService"; // import the authservice
 import RecipeList from "./components/RecipeList/RecipeList";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
+import RecipeForm from "./components/RecipeForm/RecipeForm";
 
 // import the recipe service
 import * as recipeService from "./services/recipeService";
@@ -32,6 +33,14 @@ const App = () => {
     setUser(null);
   };
 
+  const navigate = useNavigate();
+
+  const handleAddRecipe = async (recipeFormData) => {
+    const newRecipe = await recipeService.create(recipeFormData);
+    setRecipes([newRecipe, ...recipes]);
+    navigate("/recipes");
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -40,11 +49,9 @@ const App = () => {
           {user ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route
-                path="/recipes"
-                element={<RecipeList recipes={recipes} />}
-              />
+              <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
               <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+              <Route path="/recipes/new" element={<RecipeForm handleAddRecipe={handleAddRecipe} />} />
             </>
           ) : (
             <Route path="/" element={<Landing />} />
