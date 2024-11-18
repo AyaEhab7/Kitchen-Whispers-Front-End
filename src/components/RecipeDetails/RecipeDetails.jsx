@@ -12,12 +12,12 @@ const RecipeDetails = (props) => {
   const user = useContext(AuthedUserContext);
 
   useEffect(() => {
-    const fetchHoot = async () => {
+    const fetchRecipe  = async () => {
       const recipeData = await recipeService.show(recipeId);
       console.log("recipeData", recipeData);
       setRecipe(recipeData);
     };
-    fetchHoot();
+    fetchRecipe();
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
@@ -25,7 +25,15 @@ const RecipeDetails = (props) => {
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
-  if (!recipe) {
+  const handleDeleteComment = async (commentId) => {
+      await recipeService.deleteComment(recipeId, commentId);
+      setRecipe({
+        ...recipe,
+        comments: recipe.comments.filter((comment) => comment._id !== commentId),
+      });
+  }
+
+  if (!recipe ) {
     return <main>Loading...</main>;
   }
 
@@ -64,9 +72,13 @@ const RecipeDetails = (props) => {
                 {comment.author.username} posted on
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
-            </header>
+             </header>
             <p>{comment.text}</p>
-          </article>
+            {/* Show delete button only if the logged-in user is the author of the comment */}
+            {comment.author._id === user._id && (            
+            <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
+          )}
+            </article>
         ))}
       </section>
     </main>
