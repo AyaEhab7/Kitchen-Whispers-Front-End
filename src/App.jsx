@@ -40,7 +40,10 @@ const App = () => {
     setRecipes([newRecipe, ...recipes]);
     navigate("/recipes");
   };
-
+  //
+  const handleDeleteRecipe = async (recipeId) => {
+    console.log("delete recipe", recipeId);
+  };
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -57,6 +60,12 @@ const App = () => {
               <Route
                 path="/recipes/new"
                 element={<RecipeForm handleAddRecipe={handleAddRecipe} />}
+              />
+              <Route
+                path="/recipes/:recipeId"
+                element={
+                  <RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />
+                }
               />
             </>
           ) : (
