@@ -42,11 +42,9 @@ const App = () => {
   };
 
   const handleDeleteRecipe = async (recipeId) => {
-    console.log("delete recipe", recipes);
     const deleteRecipe = await recipeService.deleteRecipe(recipeId);
 
     setRecipes(recipes.filter((recipe) => recipe._id !== recipeId));
-    console.log("delete recipe", recipes);
     navigate("/recipes");
   };
 
