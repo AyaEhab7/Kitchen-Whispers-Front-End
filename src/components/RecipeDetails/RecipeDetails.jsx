@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as recipeService from "../../services/recipeService";
 
+import CommentForm from '../CommentForm/CommentForm';
+
 const RecipeDetails = (props) => {
   const { recipeId } = useParams();
   //   console.log(recipeId);
@@ -14,6 +16,12 @@ const RecipeDetails = (props) => {
     };
     fetchHoot();
   }, [recipeId]);
+
+  const handleAddComment = async (commentFormData) => {
+    console.log('commentFormData', commentFormData);
+  };
+
+
   if (!recipe) {
     return <main>Loading...</main>;
   }
@@ -36,7 +44,7 @@ const RecipeDetails = (props) => {
         </p>
       </section>
       <section>
-        <h2>Comments</h2>
+        <h2>Comments</h2><CommentForm />
         {!recipe.comments.length && <p>No comments yet</p>}
         {recipe.comments.map((comment) => (
           <article key={comment._id}>
