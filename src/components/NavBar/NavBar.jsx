@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
 
+
 const NavBar = ({ handleSignout }) => {
   const user = useContext(AuthedUserContext);
   return (
@@ -9,15 +10,10 @@ const NavBar = ({ handleSignout }) => {
       {user ? (
         <nav>
           <ul>
-            <li>Welcome, {user.username}</li>
-            <li>
-              <Link to="/">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="" onClick={handleSignout}>
-                Sign Out
-              </Link>
-            </li>
+            <li>Welcome, {user.username}</li><li>
+              <Link to="/">Dashboard</Link></li><li>
+              <li><Link to='/recipes'>Recipes List</Link></li>
+              <Link to="" onClick={handleSignout}>Sign Out </Link></li>
           </ul>
         </nav>
       ) : (
