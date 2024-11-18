@@ -30,10 +30,10 @@ const show = async (recipeID) => {
 const create = async (recipeFormData) => {
   try {
     const res = await fetch(BASE_URL, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(recipeFormData),
     });
@@ -46,10 +46,10 @@ const create = async (recipeFormData) => {
 const createComment = async (recipeID, commentFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/${recipeID}/comments`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(commentFormData),
     });
@@ -59,9 +59,20 @@ const createComment = async (recipeID, commentFormData) => {
   }
 };
 
-export { 
-  index, 
-  show, 
-  create,
-  createComment, 
+// delete recipe
+
+const deleteRecipe = async (recipeID) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${recipeID}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
 };
+
+export { index, show, create, createComment, deleteRecipe };

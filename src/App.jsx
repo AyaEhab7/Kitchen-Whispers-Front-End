@@ -41,6 +41,12 @@ const App = () => {
     navigate("/recipes");
   };
 
+  const handleDeleteRecipe = async (recipeId) => {
+    const deleteRecipe = await recipeService.deleteRecipe(recipeId);
+    setRecipes(recipes.filter((recipe) => recipe._id !== deleteRecipe._id));
+    navigate("/recipes");
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -49,9 +55,20 @@ const App = () => {
           {user ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
-              <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
-              <Route path="/recipes/new" element={<RecipeForm handleAddRecipe={handleAddRecipe} />} />
+              <Route
+                path="/recipes"
+                element={<RecipeList recipes={recipes} />}
+              />
+              <Route
+                path="/recipes/new"
+                element={<RecipeForm handleAddRecipe={handleAddRecipe} />}
+              />
+              <Route
+                path="/recipes/:recipeId"
+                element={
+                  <RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />
+                }
+              />
             </>
           ) : (
             <Route path="/" element={<Landing />} />

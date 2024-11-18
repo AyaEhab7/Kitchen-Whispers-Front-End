@@ -1,13 +1,15 @@
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
 import * as recipeService from "../../services/recipeService";
+import { AuthedUserContext } from "../../App";
 
-import CommentForm from '../CommentForm/CommentForm';
+import CommentForm from "../CommentForm/CommentForm";
 
 const RecipeDetails = (props) => {
   const { recipeId } = useParams();
-  //   console.log(recipeId);
   const [recipe, setRecipe] = useState(null);
+  const user = useContext(AuthedUserContext);
+
   useEffect(() => {
     const fetchHoot = async () => {
       const recipeData = await recipeService.show(recipeId);
@@ -18,10 +20,12 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await recipeService.createComment(recipeId, commentFormData);
+    const newComment = await recipeService.createComment(
+      recipeId,
+      commentFormData
+    );
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
-
 
   if (!recipe) {
     return <main>Loading...</main>;
@@ -43,9 +47,18 @@ const RecipeDetails = (props) => {
         <p>
           <strong>Difficulty:</strong> {recipe.difficulty}
         </p>
+
+        {recipe.author._id === user._id && (
+          <>
+            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
+              Delete
+            </button>
+          </>
+        )}
       </section>
       <section>
-        <h2>Comments</h2><CommentForm handleAddComment={handleAddComment} />
+        <h2>Comments</h2>
+        <CommentForm handleAddComment={handleAddComment} />
         {!recipe.comments.length && <p>No comments yet</p>}
         {recipe.comments.map((comment) => (
           <article key={comment._id}>
