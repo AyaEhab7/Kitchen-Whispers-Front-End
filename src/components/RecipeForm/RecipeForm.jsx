@@ -39,7 +39,14 @@ const RecipeForm = (props) => {
       <form onSubmit={handleSubmit}>
         <h1>{recipeId ? "Edit Recipe" : "New Recipe"}</h1>
         <label htmlFor="title">Title:</label>
-        <input required type="text" name="title" id="title" value={formData.title} onChange={handleChange} />
+        <input
+          required
+          type="text"
+          name="title"
+          id="title"
+          value={formData.title}
+          onChange={handleChange}
+        />
 
         <label htmlFor="ingredients">Ingredients:</label>
         <textarea
@@ -52,7 +59,14 @@ const RecipeForm = (props) => {
         />
 
         <label htmlFor="steps">Steps:</label>
-        <textarea required type="text" name="steps" id="steps-input" value={formData.steps} onChange={handleChange} />
+        <textarea
+          required
+          type="text"
+          name="steps"
+          id="steps-input"
+          value={formData.steps}
+          onChange={handleChange}
+        />
 
         <label htmlFor="cookingTime">Cooking Time:</label>
         <input
@@ -65,7 +79,13 @@ const RecipeForm = (props) => {
         />
 
         <label htmlFor="difficulty-input">Difficulty</label>
-        <select required name="difficulty" id="difficulty-input" value={formData.difficulty} onChange={handleChange}>
+        <select
+          required
+          name="difficulty"
+          id="difficulty-input"
+          value={formData.difficulty}
+          onChange={handleChange}
+        >
           <option value="Easy">Easy</option>
           <option value="Normal">Normal</option>
           <option value="Hard">Hard</option>
