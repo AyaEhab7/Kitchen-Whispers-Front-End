@@ -26,6 +26,9 @@ const RecipeDetails = (props) => {
           <strong>Ingredients:</strong> {recipe.ingredients}
         </p>
         <p>
+          <strong>Steps:</strong> {recipe.steps}
+        </p>
+        <p>
           <strong>Cooking Time:</strong> {recipe.cookingTime} minutes
         </p>
         <p>
