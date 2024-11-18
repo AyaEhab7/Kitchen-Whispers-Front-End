@@ -42,15 +42,22 @@ const App = () => {
   };
 
   const handleDeleteRecipe = async (recipeId) => {
+    console.log("delete recipe", recipes);
     const deleteRecipe = await recipeService.deleteRecipe(recipeId);
-    setRecipes(recipes.filter((recipe) => recipe._id !== deleteRecipe._id));
+
+    setRecipes(recipes.filter((recipe) => recipe._id !== recipeId));
+    console.log("delete recipe", recipes);
     navigate("/recipes");
   };
 
   const handleUpdateRecipe = async (recipeId, recipeFormData) => {
     const updatedRecipe = await recipeService.update(recipeId, recipeFormData);
 
-    setRecipes(recipes.map((recipe) => (recipeId === recipe._id ? updatedRecipe : recipe)));
+    setRecipes(
+      recipes.map((recipe) =>
+        recipeId === recipe._id ? updatedRecipe : recipe
+      )
+    );
 
     navigate(`/recipes/${recipeId}`);
   };
@@ -63,10 +70,24 @@ const App = () => {
           {user ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
-              <Route path="/recipes/new" element={<RecipeForm handleAddRecipe={handleAddRecipe} />} />
-              <Route path="/recipes/:recipeId" element={<RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />} />
-              <Route path="/recipes/:recipeId/edit" element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />} />
+              <Route
+                path="/recipes"
+                element={<RecipeList recipes={recipes} />}
+              />
+              <Route
+                path="/recipes/new"
+                element={<RecipeForm handleAddRecipe={handleAddRecipe} />}
+              />
+              <Route
+                path="/recipes/:recipeId"
+                element={
+                  <RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />
+                }
+              />
+              <Route
+                path="/recipes/:recipeId/edit"
+                element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />}
+              />
             </>
           ) : (
             <Route path="/" element={<Landing />} />
