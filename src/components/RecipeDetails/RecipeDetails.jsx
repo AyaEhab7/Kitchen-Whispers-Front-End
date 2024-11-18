@@ -1,10 +1,9 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import * as recipeService from "../../services/recipeService";
 
 const RecipeDetails = (props) => {
   const { recipeId } = useParams();
-  //   console.log(recipeId);
   const [recipe, setRecipe] = useState(null);
   useEffect(() => {
     const fetchHoot = async () => {

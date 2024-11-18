@@ -49,9 +49,15 @@ const App = () => {
           {user ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
+              <Route
+                path="/recipes"
+                element={<RecipeList recipes={recipes} />}
+              />
               <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
-              <Route path="/recipes/new" element={<RecipeForm handleAddRecipe={handleAddRecipe} />} />
+              <Route
+                path="/recipes/new"
+                element={<RecipeForm handleAddRecipe={handleAddRecipe} />}
+              />
             </>
           ) : (
             <Route path="/" element={<Landing />} />
