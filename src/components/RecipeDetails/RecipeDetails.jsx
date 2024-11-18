@@ -44,7 +44,7 @@ const RecipeDetails = (props) => {
         </p>
       </section>
       <section>
-        <h2>Comments</h2><CommentForm />
+        <h2>Comments</h2><CommentForm handleAddComment={handleAddComment} />
         {!recipe.comments.length && <p>No comments yet</p>}
         {recipe.comments.map((comment) => (
           <article key={comment._id}>

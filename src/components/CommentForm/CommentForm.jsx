@@ -10,9 +10,9 @@ const CommentForm = (props) => {
     };
   
     const handleSubmit = (evt) => {
-      evt.preventDefault();
-      // handleAddComment
-      setFormData({ text: '' });
+        evt.preventDefault();
+        props.handleAddComment(formData);
+        setFormData({ text: '' });
     };
   
     return (
