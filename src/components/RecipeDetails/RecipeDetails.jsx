@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import * as recipeService from "../../services/recipeService";
 import { AuthedUserContext } from "../../App";
@@ -50,8 +50,9 @@ const RecipeDetails = (props) => {
 
         {recipe.author._id === user._id && (
           <>
-            {" "}
-            <button>Delete</button>{" "}
+            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
+              Delete
+            </button>
           </>
         )}
       </section>
