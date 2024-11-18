@@ -47,6 +47,14 @@ const App = () => {
     navigate("/recipes");
   };
 
+  const handleUpdateRecipe = async (recipeId, recipeFormData) => {
+    const updatedRecipe = await recipeService.update(recipeId, recipeFormData);
+
+    setRecipes(recipes.map((recipe) => (recipeId === recipe._id ? updatedRecipe : recipe)));
+
+    navigate(`/recipes/${recipeId}`);
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -55,20 +63,10 @@ const App = () => {
           {user ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route
-                path="/recipes"
-                element={<RecipeList recipes={recipes} />}
-              />
-              <Route
-                path="/recipes/new"
-                element={<RecipeForm handleAddRecipe={handleAddRecipe} />}
-              />
-              <Route
-                path="/recipes/:recipeId"
-                element={
-                  <RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />
-                }
-              />
+              <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
+              <Route path="/recipes/new" element={<RecipeForm handleAddRecipe={handleAddRecipe} />} />
+              <Route path="/recipes/:recipeId" element={<RecipeDetails handleDeleteRecipe={handleDeleteRecipe} />} />
+              <Route path="/recipes/:recipeId/edit" element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />} />
             </>
           ) : (
             <Route path="/" element={<Landing />} />

@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import * as recipeService from "../../services/recipeService";
 
 const RecipeForm = (props) => {
   const [formData, setFormData] = useState({
@@ -15,12 +17,27 @@ const RecipeForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddRecipe(formData);
+    if (recipeId) {
+      props.handleUpdateRecipe(recipeId, formData);
+    } else {
+      props.handleUpdateRecipe(formData);
+    }
   };
+
+  const { recipeId } = useParams();
+
+  useEffect(() => {
+    const fetchrecipe = async () => {
+      const recipeData = await recipeService.show(recipeId);
+      setFormData(recipeData);
+    };
+    if (recipeId) fetchrecipe();
+  }, [recipeId]);
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h1>{recipeId ? "Edit Recipe" : "New Recipe"}</h1>
         <label htmlFor="title">Title:</label>
         <input required type="text" name="title" id="title" value={formData.title} onChange={handleChange} />
 
