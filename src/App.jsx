@@ -9,6 +9,8 @@ import * as authService from "../src/services/authService"; // import the authse
 import RecipeList from "./components/RecipeList/RecipeList";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import RecipeForm from "./components/RecipeForm/RecipeForm";
+import CommentForm from './components/CommentForm/CommentForm';
+
 
 // import the recipe service
 import * as recipeService from "./services/recipeService";
@@ -85,6 +87,10 @@ const App = () => {
               <Route
                 path="/recipes/:recipeId/edit"
                 element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />}
+              />
+                            <Route
+                path="/recipes/:recipeId/comments/:commentId/edit"
+                element={<CommentForm handleUpdateRecipe={handleUpdateRecipe} />}
               />
             </>
           ) : (
