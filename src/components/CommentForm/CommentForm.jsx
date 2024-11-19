@@ -20,14 +20,14 @@ const CommentForm = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
     if (recipeId && commentId) {
-      await recipeService.updateComment(recipeId, commentId, formData);
+      recipeService.updateComment(recipeId, commentId, formData);
       navigate(`/recipes/${recipeId}`);
     } else {
-      await props.handleAddComment(formData);
-      navigate(0);
+      props.handleAddComment(formData);
+      window.location.reload();
     }
     setFormData({ text: "" });
   };
