@@ -10,7 +10,9 @@ const CommentForm = (props) => {
   useEffect(() => {
     const fetchRecipe = async () => {
       const recipeData = await recipeService.show(recipeId);
-      setFormData(recipeData.comments.find((comment) => comment._id === commentId));
+      setFormData(
+        recipeData.comments.find((comment) => comment._id === commentId)
+      );
     };
     if (recipeId && commentId) fetchRecipe();
   }, [recipeId, commentId]);
@@ -36,7 +38,14 @@ const CommentForm = (props) => {
         <form onSubmit={handleSubmit}>
           <h1>Edit Comment</h1>
           <label htmlFor="text-input">Your comment:</label>
-          <textarea required type="text" name="text" id="text-input" value={formData.text} onChange={handleChange} />
+          <textarea
+            required
+            type="text"
+            name="text"
+            id="text-input"
+            value={formData.text}
+            onChange={handleChange}
+          />
           <button type="submit">SUBMIT</button>
         </form>
       </main>
@@ -45,7 +54,14 @@ const CommentForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="text-input">Your comment:</label>
-      <textarea required type="text" name="text" id="text-input" value={formData.text} onChange={handleChange} />
+      <textarea
+        required
+        type="text"
+        name="text"
+        id="text-input"
+        value={formData.text}
+        onChange={handleChange}
+      />
       <button type="submit">SUBMIT COMMENT</button>
     </form>
   );
