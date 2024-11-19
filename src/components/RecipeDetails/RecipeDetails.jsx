@@ -21,10 +21,7 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await recipeService.createComment(
-      recipeId,
-      commentFormData
-    );
+    const newComment = await recipeService.createComment(recipeId, commentFormData);
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
@@ -60,9 +57,7 @@ const RecipeDetails = (props) => {
         {recipe.author._id === user._id && (
           <>
             <Link to={`/recipes/${recipeId}/edit`}>Edit</Link>
-            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
-              Delete
-            </button>
+            <button onClick={() => props.handleDeleteRecipe(recipeId)}>Delete</button>
           </>
         )}
       </section>
@@ -82,12 +77,8 @@ const RecipeDetails = (props) => {
             {/* Show delete button only if the logged-in user is the author of the comment */}
             {comment.author === user._id && (
               <>
-                <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>
-                  Edit
-                </Link>
-                <button onClick={() => handleDeleteComment(comment._id)}>
-                  Delete
-                </button>
+                <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>Edit</Link>
+                <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
               </>
             )}
           </article>
