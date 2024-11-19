@@ -75,8 +75,11 @@ const RecipeDetails = (props) => {
              </header>
             <p>{comment.text}</p>
             {/* Show delete button only if the logged-in user is the author of the comment */}
-            {comment.author._id === user._id && (            
+            {comment.author._id === user._id && (  
+              <>
+            <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>Edit</Link>            
             <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
+             </>
           )}
             </article>
         ))}
