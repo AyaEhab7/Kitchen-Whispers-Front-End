@@ -12,7 +12,7 @@ const RecipeDetails = (props) => {
   const user = useContext(AuthedUserContext);
 
   useEffect(() => {
-    const fetchRecipe  = async () => {
+    const fetchRecipe = async () => {
       const recipeData = await recipeService.show(recipeId);
       console.log("recipeData", recipeData);
       setRecipe(recipeData);
@@ -21,19 +21,22 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await recipeService.createComment(recipeId, commentFormData);
+    const newComment = await recipeService.createComment(
+      recipeId,
+      commentFormData
+    );
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
   const handleDeleteComment = async (commentId) => {
-      await recipeService.deleteComment(recipeId, commentId);
-      setRecipe({
-        ...recipe,
-        comments: recipe.comments.filter((comment) => comment._id !== commentId),
-      });
-  }
+    await recipeService.deleteComment(recipeId, commentId);
+    setRecipe({
+      ...recipe,
+      comments: recipe.comments.filter((comment) => comment._id !== commentId),
+    });
+  };
 
-  if (!recipe ) {
+  if (!recipe) {
     return <main>Loading...</main>;
   }
 
@@ -57,7 +60,9 @@ const RecipeDetails = (props) => {
         {recipe.author._id === user._id && (
           <>
             <Link to={`/recipes/${recipeId}/edit`}>Edit</Link>
-            <button onClick={() => props.handleDeleteRecipe(recipeId)}>Delete</button>
+            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
+              Delete
+            </button>
           </>
         )}
       </section>
@@ -72,16 +77,20 @@ const RecipeDetails = (props) => {
                 {comment.author.username} posted on
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
-             </header>
+            </header>
             <p>{comment.text}</p>
             {/* Show delete button only if the logged-in user is the author of the comment */}
-            {comment.author === user._id && (  
+            {comment.author === user._id && (
               <>
-            <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>Edit</Link>            
-            <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
-             </>
-          )}
-            </article>
+                <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>
+                  Edit
+                </Link>
+                <button onClick={() => handleDeleteComment(comment._id)}>
+                  Delete
+                </button>
+              </>
+            )}
+          </article>
         ))}
       </section>
     </main>
