@@ -62,7 +62,7 @@ const RecipeDetails = (props) => {
         )}
       </section>
       <section>
-        <h2>Comments</h2>
+        <h2>Comment</h2>
         <CommentForm handleAddComment={handleAddComment} />
         {!recipe.comments.length && <p>No comments yet</p>}
         {recipe.comments.map((comment) => (
