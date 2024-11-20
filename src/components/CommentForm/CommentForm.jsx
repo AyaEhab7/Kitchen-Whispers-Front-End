@@ -5,6 +5,7 @@ import "./CommentForm.css";
 
 const CommentForm = (props) => {
   const [formData, setFormData] = useState({ text: "" });
+  const [trigger, setTrigger] = useState(false);
   const { recipeId, commentId } = useParams();
   const navigate = useNavigate();
 
@@ -16,19 +17,20 @@ const CommentForm = (props) => {
       );
     };
     if (recipeId && commentId) fetchRecipe();
-  }, [recipeId, commentId]);
+  }, [recipeId, commentId, trigger]);
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (recipeId && commentId) {
       recipeService.updateComment(recipeId, commentId, formData);
       navigate(`/recipes/${recipeId}`);
     } else {
-      props.handleAddComment(formData);
+      await props.handleAddComment(formData);
       window.location.reload();
+      setTrigger(!trigger);
     }
     setFormData({ text: "" });
   };
