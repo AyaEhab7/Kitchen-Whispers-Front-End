@@ -1,0 +1,89 @@
+/* General reset */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-image: url("https://t3.ftcdn.net/jpg/08/52/52/86/360_F_852528654_xAFMy73zCSbgWs2BnqukjzrTqF2JHter.jpg");
+  background-size: cover;
+  color: #f4f4f4; /* Light text for contrast */
+}
+
+/* Styling the main container */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #e8d7c5; /* Warm, soft color for the heading */
+}
+
+/* Recipe squares layout */
+main > a {
+  text-decoration: none;
+}
+
+main > a header {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  margin: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for elegance */
+  border-radius: 16px; /* Softer edges for warmth */
+  background: linear-gradient(
+    145deg,
+    #f0e2d1,
+    #d8bba2
+  ); /* Warm beige gradient */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+    -5px -5px 15px rgba(255, 255, 255, 0.1); /* Subtle inner glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover effects */
+main > a header:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(
+    145deg,
+    #d9c2ad,
+    #c3a083
+  ); /* Darker tone for hover */
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4),
+    -8px -8px 20px rgba(255, 255, 255, 0.2); /* Enhanced shadow */
+}
+
+/* Center content inside the squares */
+main > a header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Recipe title styling */
+main > a header li {
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 600; /* Slightly bolder for emphasis */
+  color: #4a3b31; /* Warm brown for titles */
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); /* Adds depth to text */
+}
+
+/* Responsive design: Adjust grid size for smaller screens */
+@media (max-width: 768px) {
+  main > a header {
+    width: 150px;
+    height: 150px;
+  }
+}
