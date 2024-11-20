@@ -48,5 +48,33 @@ button {
   margin-top: 10px;
 }
 button:hover {
-  background: #a90220; /* Same hover effect as recipe edit button */
+  background: #a90220; 
+}
+
+@media (max-width: 768px) {
+  .RecipeForm {
+    width: 90%; 
+    height: auto;
+    margin: 10px auto; 
+    padding: 20px; 
+  }
+
+  .RecipeForm h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 15px;
+  }
+
+  .RecipeForm textarea {
+    height: 80px; 
+    font-size: 0.9rem; 
+  }
+
+  button {
+    padding: 8px 14px; 
+    font-size: 0.8rem; 
+  }
+
+  button:hover {
+    background: #a90220; 
+  }
 }

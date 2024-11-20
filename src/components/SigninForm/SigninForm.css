@@ -100,3 +100,48 @@
     background-color: darkgreen;
   }
   
+  @media (max-width: 768px) {
+
+    .signin-main {
+      padding: 20px; 
+      justify-content: center;  
+    }
+  
+    .signin-card {
+      width: 100%; 
+      padding: 20px;  
+      margin: 0 auto; 
+      left: 0; 
+    }
+  
+
+    .signin-title {
+      font-size: 28px;  
+      padding-left: 0;  
+    
+    }
+
+    .signin-input-group {
+      margin-bottom: 10px; 
+    }
+  
+    .signin-input {
+      padding: 10px;  
+      font-size: 1rem; 
+    }
+  
+    .signin-button, .signin-cancel-button {
+      font-size: 1rem; 
+    }
+  
+    .signin-actions {
+      flex-direction: row;  
+      align-items: center;  
+    }
+  
+    .signin-button, .signin-cancel-button {
+      width: auto;
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }

@@ -63,3 +63,44 @@ h4 {
   height: 500px;
   border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+  .landing-main {
+    flex-direction: column; 
+    padding: 20px; 
+    height: auto;
+  }
+
+  .text-content {
+    flex: 1; 
+    padding-right: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem; 
+    margin-bottom: 8px; 
+  }
+
+  h3 {
+    font-size: 1.3rem; 
+    margin-bottom: 15px; 
+  }
+
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5; 
+  }
+
+  .join-button {
+    padding: 10px 20px;
+    font-size: 1rem; 
+  }
+
+  .landing-image {
+    flex: 1; 
+    height: 300px; 
+    margin-top: 20px; 
+  }
+}
