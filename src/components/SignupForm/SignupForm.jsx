@@ -44,7 +44,7 @@ const SignupForm = (props) => {
         <p className="signup-message">{message}</p>
         <form className="signup-form" onSubmit={handleSubmit}>
           <div className="signup-input-group">
-            <label htmlFor="username" className="signup-label">Username:</label>
+            <label htmlFor="username" className="signup-label">Username</label>
             <input
               type="text"
               id="name"
@@ -55,7 +55,7 @@ const SignupForm = (props) => {
             />
           </div>
           <div className="signup-input-group">
-            <label htmlFor="password" className="signup-label">Password:</label>
+            <label htmlFor="password" className="signup-label">Password</label>
             <input
               type="password"
               id="password"
@@ -66,7 +66,7 @@ const SignupForm = (props) => {
             />
           </div>
           <div className="signup-input-group">
-            <label htmlFor="confirm" className="signup-label">Confirm Password:</label>
+            <label htmlFor="confirm" className="signup-label">Confirm Password</label>
             <input
               type="password"
               id="confirm"

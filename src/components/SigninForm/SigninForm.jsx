@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService';
+import "./SigninForm.css";
 
 const SigninForm = (props) => {
   const navigate = useNavigate();
@@ -32,39 +33,43 @@ const SigninForm = (props) => {
   };
 
   return (
-    <main>
-      <h1>Log In</h1>
-      <p>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Username:</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="username"
-            value={formData.username}
-            name="username"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={formData.password}
-            name="password"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <button>Log In</button>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
-        </div>
-      </form>
+    <main className="signin-main">
+      <div className="signin-card">
+        <h1 className="signin-title">Log In</h1>
+        <p className="signin-message">{message}</p>
+        <form className="signin-form" autoComplete="off" onSubmit={handleSubmit}>
+          <div className="signin-input-group">
+            <label htmlFor="username" className="signin-label">Username</label>
+            <input
+              type="text"
+              autoComplete="off"
+              id="username"
+              value={formData.username}
+              name="username"
+              onChange={handleChange}
+              className="signin-input"
+            />
+          </div>
+          <div className="signin-input-group">
+            <label htmlFor="password" className="signin-label">Password</label>
+            <input
+              type="password"
+              autoComplete="off"
+              id="password"
+              value={formData.password}
+              name="password"
+              onChange={handleChange}
+              className="signin-input"
+            />
+          </div>
+          <div className="signin-actions">
+            <button type="submit" className="signin-button">Log In</button>
+            <Link to="/">
+              <button type="button" className="signin-cancel-button">Cancel</button>
+            </Link>
+          </div>
+        </form>
+      </div>
     </main>
   );
 };
