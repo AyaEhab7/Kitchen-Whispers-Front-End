@@ -1,0 +1,48 @@
+.EditCommentForm {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: auto; /* Adjusted height to auto to fit content */
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff81;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.EditCommentForm form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.EditCommentForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.EditCommentForm h1 {
+  margin-bottom: 20px;
+}
+
+.EditCommentForm textarea {
+  height: 100px;
+}
+
+.EditCommentForm button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #374b38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.EditCommentForm button:hover {
+  background-color: #456146;
+}
