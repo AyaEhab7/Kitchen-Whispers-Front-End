@@ -1,73 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
 
 .landing-main {
-    display: flex; 
-    align-items: center;
-    justify-content: space-between; 
-    padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    height: 80vh; /* Full height of the viewport */
-    font-family: 'Poppins', sans-serif; /* Apply the custom font */
-
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 80vh; /* Full height of the viewport */
+  font-family: "Poppins", sans-serif; /* Apply the custom font */
 }
-  
+
 .text-content {
-    flex: 2; /* Allow text to take available space */
-    padding-right: 50px;
-    text-align: center;
+  flex: 2; /* Allow text to take available space */
+  padding-right: 50px;
+  text-align: center;
 }
-  
 
 h1 {
-    font-size: 2.8rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-family: 'Lora', serif; 
+  font-size: 2.8rem;
+  color: #1b6ab9;
+  margin-bottom: 10px;
+  font-family: "Lora", serif;
 }
-  
+
 h3 {
-    font-size: 1.5rem;
-    color: #34495e;
-    margin-bottom: 20px;
-    
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 20px;
 }
-  
+
 h4 {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    margin-bottom: 30px;
-    line-height: 1.6;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
-  
+
 .join-button {
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    color: white;
-    background-color:darkgreen;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block; /* Ensure Link behaves like a button */
-    text-decoration: none; /* Remove underline for Link */
-
-
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #f03b0d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Ensure Link behaves like a button */
+  text-decoration: none; /* Remove underline for Link */
 }
-  
+
 .join-button:hover {
-    background-color: #d35400;
+  background-color: darkgreen;
 }
-  
+
 .landing-image {
-    flex: 2;
-    background-image: url("../../assets/images/image2.jpg"); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 500px; 
-    border-radius: 8px;
+  flex: 2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  border-radius: 8px;
 }
-  

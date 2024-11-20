@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-image: url("https://t3.ftcdn.net/jpg/08/52/52/86/360_F_852528654_xAFMy73zCSbgWs2BnqukjzrTqF2JHter.jpg");
+  background-image: url("https://img.freepik.com/free-photo/arrangement-raw-pasta-ingredients-with-copy-space_23-2148360832.jpg?t=st=1732085187~exp=1732088787~hmac=013fe82991ec6e2a0c03f798ac849a5a47563f7f3808aed37f2cd442de3fd4c8&w=1060");
   background-size: cover;
   color: #f4f4f4; /* Light text for contrast */
 }
@@ -17,7 +17,10 @@ main {
 h1 {
   margin-bottom: 30px;
   font-size: 2.5rem;
-  color: #e8d7c5; /* Warm, soft color for the heading */
+  color: #333333; /* Warm, soft color for the heading */
+}
+h3 {
+  color: #25160e;
 }
 
 /* Recipe squares layout */
