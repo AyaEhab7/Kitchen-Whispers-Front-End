@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as recipeService from "../../services/recipeService";
+import "./CommentForm.css";
 
 const CommentForm = (props) => {
   const [formData, setFormData] = useState({ text: "" });
@@ -35,7 +36,7 @@ const CommentForm = (props) => {
   if (recipeId && commentId)
     return (
       <main>
-        <form onSubmit={handleSubmit}>
+        <form className="EditCommentForm" onSubmit={handleSubmit}>
           <h1>Edit Comment</h1>
           <label htmlFor="text-input">Your comment:</label>
           <textarea
