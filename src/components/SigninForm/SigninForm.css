@@ -1,15 +1,15 @@
 /* Main container styling */
-.signup-main {
+.signin-main {
     display: flex;
     justify-content: flex-start;  /* Align the card to the left */
     align-items: center;          /* Center vertically */
-    height: 80vh;                /* Full screen height */
+    height: 80vh;                 /* Full screen height */
     padding: 40px;
     color: #f03b0d;
   }
   
   /* Card container for the form */
-  .signup-card {
+  .signin-card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;      /* Align form inputs and buttons to the left */
@@ -20,44 +20,44 @@
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
     left: 250px;
-    position: relative;  
-}
+    position: relative;
+  }
   
   /* Title of the form */
-  .signup-title {
+  .signin-title {
     font-size: 40px;
     text-align: center;
     font-weight: bold;
     align-items: center;
-    padding-left: 105px;
-}
+    padding-left: 120px;
+  }
   
   /* Message container (e.g., error message) */
-  .signup-message {
+  .signin-message {
     color: red;  /* Error message styling */
     font-size: 14px;
     margin-bottom: 15px;
   }
   
   /* Form container */
-  .signup-form {
+  .signin-form {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
   
   /* Input field styling */
-  .signup-input-group {
+  .signin-input-group {
     margin-bottom: 15px;
   }
   
-  .signup-label {
+  .signin-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  .signup-input {
+  .signin-input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -65,13 +65,14 @@
     border-radius: 4px;
   }
   
-  .signup-actions {
+  .signin-actions {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
   
-  .signup-button, .signup-cancel-button {
+  /* Buttons (submit and cancel) */
+  .signin-button, .signin-cancel-button {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -80,25 +81,22 @@
     background-color: #f03b0d; /* Red background for Cancel */
     color: white;
   }
-  .signup-button:hover{
-    background-color: darkgreen;
-
-  }
-
   
-  .signup-button:disabled {
+  .signin-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .signin-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-
-
   }
   
-  .signup-cancel-button {
+  .signin-cancel-button {
     background-color: #f03b0d; /* Red background for Cancel */
     color: white;
   }
   
-  .signup-cancel-button:hover {
+  .signin-cancel-button:hover {
     background-color: darkgreen;
   }
   
