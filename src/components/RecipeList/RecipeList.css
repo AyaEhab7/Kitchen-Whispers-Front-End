@@ -19,6 +19,7 @@ h1 {
   font-size: 2.5rem;
   color: #333333; /* Warm, soft color for the heading */
 }
+
 h3 {
   color: #25160e;
 }
@@ -28,7 +29,7 @@ main > a {
   text-decoration: none;
 }
 
-main > a header {
+main > a .recipe-header {
   display: inline-block;
   width: 180px;
   height: 180px;
@@ -47,7 +48,7 @@ main > a header {
 }
 
 /* Hover effects */
-main > a header:hover {
+main > a .recipe-header:hover {
   transform: translateY(-8px);
   background: linear-gradient(
     145deg,
@@ -59,7 +60,7 @@ main > a header:hover {
 }
 
 /* Center content inside the squares */
-main > a header div {
+main > a .recipe-header div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +70,12 @@ main > a header div {
 }
 
 /* Recipe title styling */
-main > a header li {
+main > a .recipe-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+main > a .recipe-header li {
   list-style: none;
   font-size: 1.1rem;
   font-weight: 600; /* Slightly bolder for emphasis */
@@ -81,11 +87,14 @@ main > a header li {
   white-space: normal;
   line-height: 1.4;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); /* Adds depth to text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive design: Adjust grid size for smaller screens */
 @media (max-width: 768px) {
-  main > a header {
+  main > a .recipe-header {
     width: 150px;
     height: 150px;
   }
