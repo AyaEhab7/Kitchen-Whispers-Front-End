@@ -1,0 +1,34 @@
+.RecipeForm {
+color: black;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 500px;
+height: 600%;
+margin: 20px;
+padding: 20px;
+border: 2px solid #ccc;
+border-radius: 5px;
+background-color: #ffffff81;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.RecipeForm form {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.RecipeForm label {
+display: block;
+margin-bottom: 10px;
+}
+
+.RecipeForm h2 {
+margin-bottom: 20px;
+}
+
+.RecipeForm textarea {
+height: 100px;
+}
