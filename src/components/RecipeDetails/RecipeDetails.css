@@ -7,6 +7,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-image: url("https://img.freepik.com/free-photo/arrangement-raw-pasta-ingredients-with-copy-space_23-2148360832.jpg?t=st=1732085187~exp=1732088787~hmac=013fe82991ec6e2a0c03f798ac849a5a47563f7f3808aed37f2cd442de3fd4c8&w=1060");
   background-size: cover;
+  background-repeat: no-repeat;
   color: #f4f4f4;
 }
 
