@@ -8,7 +8,7 @@ const RecipeList = (props) => {
 
         {props.recipes.map((recipe) => (
           <Link key={recipe._id} to={`/recipes/${recipe._id}`}>
-            <header>
+            <header className="recipe-header">
               <div>
                 <ul>
                   <li>{recipe.title}</li>
