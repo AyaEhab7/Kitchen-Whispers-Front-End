@@ -86,7 +86,7 @@ const RecipeDetails = (props) => {
               </p>
             </header>
             <p className="comment-text">{comment.text}</p>
-            {comment.author === user._id && (
+            {comment.author._id === user._id && (
               <div className="comment-actions">
                 <Link
                   to={`/recipes/${recipeId}/comments/${comment._id}/edit`}
