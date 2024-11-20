@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import * as recipeService from "../../services/recipeService";
 import { AuthedUserContext } from "../../App";
 import { Link } from "react-router-dom";
-
+import "./RecipeDetails.css";
 import CommentForm from "../CommentForm/CommentForm";
 
 const RecipeDetails = (props) => {
@@ -21,7 +21,10 @@ const RecipeDetails = (props) => {
   }, [recipeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await recipeService.createComment(recipeId, commentFormData);
+    const newComment = await recipeService.createComment(
+      recipeId,
+      commentFormData
+    );
     setRecipe({ ...recipe, comments: [...recipe.comments, newComment] });
   };
 
@@ -38,9 +41,9 @@ const RecipeDetails = (props) => {
   }
 
   return (
-    <main>
-      <section>
-        <h1>{recipe.title}</h1>
+    <main className="recipe-page">
+      <section className="recipe-details">
+        <h1 className="recipe-title">{recipe.title}</h1>
         <p>
           <strong>Ingredients:</strong> {recipe.ingredients}
         </p>
@@ -55,31 +58,49 @@ const RecipeDetails = (props) => {
         </p>
 
         {recipe.author._id === user._id && (
-          <>
-            <Link to={`/recipes/${recipeId}/edit`}>Edit</Link>
-            <button onClick={() => props.handleDeleteRecipe(recipeId)}>Delete</button>
-          </>
+          <div className="recipe-actions">
+            <Link to={`/recipes/${recipeId}/edit`} className="recipe-edit">
+              Edit
+            </Link>
+            <button
+              onClick={() => props.handleDeleteRecipe(recipeId)}
+              className="recipe-delete"
+            >
+              Delete
+            </button>
+          </div>
         )}
       </section>
-      <section>
-        <h2>Comment</h2>
+      <section className="recipe-comments">
+        <h2 className="comments-title">Comments</h2>
         <CommentForm handleAddComment={handleAddComment} />
-        {!recipe.comments.length && <p>No comments yet</p>}
+        {!recipe.comments.length && (
+          <p className="no-comments">No comments yet</p>
+        )}
         {recipe.comments.map((comment) => (
-          <article key={comment._id}>
-            <header>
+          <article key={comment._id} className="comment">
+            <header className="comment-header">
               <p>
-                {comment.author.username} posted on
+                {comment.author.username} posted on{" "}
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
             </header>
-            <p>{comment.text}</p>
-            {/* Show delete button only if the logged-in user is the author of the comment */}
+            <p className="comment-text">{comment.text}</p>
             {comment.author === user._id && (
-              <>
-                <Link to={`/recipes/${recipeId}/comments/${comment._id}/edit`}>Edit</Link>
-                <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
-              </>
+              <div className="comment-actions">
+                <Link
+                  to={`/recipes/${recipeId}/comments/${comment._id}/edit`}
+                  className="comment-edit"
+                >
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDeleteComment(comment._id)}
+                  className="comment-delete"
+                >
+                  Delete
+                </button>
+              </div>
             )}
           </article>
         ))}
