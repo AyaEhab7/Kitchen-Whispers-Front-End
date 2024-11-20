@@ -66,7 +66,10 @@ const CommentForm = (props) => {
         onChange={handleChange}
         placeholder="Enter your comment here..."
       />
-      <button type="submit">SUBMIT COMMENT</button>
+      <br />
+      <button type="submit" className="submitComment">
+        SUBMIT COMMENT
+      </button>
     </form>
   );
 };
