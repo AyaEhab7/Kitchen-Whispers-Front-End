@@ -1,4 +1,4 @@
-.EditCommentForm  {
+.EditCommentForm {
   color: black;
   display: flex;
   flex-direction: column;
@@ -46,4 +46,20 @@
 .EditCommentForm button:hover {
   background-color: #456146;
 }
-
+.submitComment {
+  background: #d90429; /* Same as recipe delete button */
+  color: #fff;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.submitComment:hover {
+  background: #a90220; /* Same hover effect as recipe edit button */
+}
