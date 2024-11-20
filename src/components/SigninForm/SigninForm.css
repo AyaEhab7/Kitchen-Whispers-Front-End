@@ -78,7 +78,7 @@
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    background-color: #f03b0d; /* Red background for Cancel */
+    background-color: #f03b0d; 
     color: white;
   }
   
@@ -92,7 +92,7 @@
   }
   
   .signin-cancel-button {
-    background-color: #f03b0d; /* Red background for Cancel */
+    background-color: #f03b0d; 
     color: white;
   }
   
