@@ -1,11 +1,10 @@
+# Kitchen Whispers
+
 ## Screenshot/Logo:
 ![Screenshot](./public/assets/Landing%20pagePNG.PNG)
 ![Screenshot](./public/assets/Home%20page.PNG)
 
-## Your app's name:
-Kitchen Whispers
-
-## Idea Description:
+## Description:
 Kitchen Whispers is a full-stack application that allows users to create, read, update, and delete (CRUD) their own recipes. The app includes authentication and authorization, ensuring that users can only manage their own recipes and comments. The app will have two main entities, User and Recipe, with Comment as an additional entity for user interaction.
 
 ## Getting Started
