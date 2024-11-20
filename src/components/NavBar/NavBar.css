@@ -43,3 +43,36 @@ nav ul li a.active {
   color: white;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  nav {
+    background-color: #333;
+    padding: 10px 0; /* Add some padding for better spacing */
+  }
+
+  nav ul {
+    display: flex; /* Keep the items in a row */
+    justify-content: center; /* Center the items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+  }
+
+  nav ul li {
+    display: inline-block; /* Keep items in a row, but allow for wrapping */
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+
+  nav ul li a {
+    font-size: 16px; /* Reduce font size for better mobile readability */
+    padding: 10px 15px; /* Adjust padding to match the horizontal layout */
+  }
+
+  .navbar-header {
+    font-size: 16px; /* Reduce the font size for the header */
+    float: none; /* Remove float so it stays in place */
+    margin-bottom: 10px; /* Space the header from the rest of the content */
+  }
+
+  .User {
+    font-size: 14px; /* Adjust the font size for the user info */
+  }
+}

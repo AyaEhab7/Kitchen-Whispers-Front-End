@@ -155,25 +155,47 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+
   .recipe-page {
     padding: 15px;
+    max-width: 100%; 
+    left: 0; 
   }
 
+
   .recipe-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem; 
+  }
+
+
+  .recipe-details p {
+    font-size: 0.9rem; 
+  }
+
+  .recipe-edit,
+  .recipe-delete {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
   .comments-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem; 
   }
 
   .comment {
-    padding: 8px 10px;
+    padding: 8px 12px;  
   }
-}
 
-label {
-  font-size: 1.2rem;
-  color: #333333;
-  margin-bottom: 15px;
+  .comment-text {
+    font-size: 0.9rem; 
+  }
+
+  .comment-actions {
+    font-size: 0.8rem; 
+  }
+
+  .comment-edit,
+  .comment-delete {
+    padding: 6px 12px; 
+  }
 }

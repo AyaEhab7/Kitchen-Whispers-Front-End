@@ -63,3 +63,33 @@
 .submitComment:hover {
   background: #a90220; /* Same hover effect as recipe edit button */
 }
+
+@media (max-width: 768px) {
+  .EditCommentForm {
+    width: 80%; 
+    padding: 20px; 
+  }
+
+  .EditCommentForm h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px; 
+  }
+
+  .EditCommentForm textarea {
+    height: 120px; 
+    font-size: 0.9rem;
+  }
+
+  .EditCommentForm button {
+    padding: 8px 16px; 
+    font-size: 1rem;
+    margin: 10px 0; 
+  }  
+
+  .submitComment {
+    width: 100%; 
+    padding: 10px 0; 
+    font-size: 1rem; 
+  }
+}
+

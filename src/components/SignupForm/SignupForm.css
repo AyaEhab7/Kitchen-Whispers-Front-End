@@ -102,3 +102,27 @@
     background-color: darkgreen;
   }
   
+  @media (max-width: 768px) {
+
+    .signup-main {
+      justify-content: center;
+      padding: 20px;           
+    }
+
+    .signup-card {
+      width: 100%; 
+      padding: 20px;
+      left: 0; 
+    }
+    .signup-title {
+      font-size: 30px; 
+      padding-left: 0; 
+    }
+  
+
+    .signup-input {
+      padding: 10px;
+      font-size: 1rem; 
+    }
+  
+  }

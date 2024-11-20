@@ -11,3 +11,18 @@
     padding: 20px 0;
   }
   
+  @media (max-width: 768px) {
+    .dashboard-container {
+      text-align: center; 
+      padding: 40px; 
+      width: 80%; 
+    }
+    
+  
+    .dashboard-container h1,
+    .dashboard-container h3,
+    .dashboard-container h4 {
+      margin: 0; 
+      padding: 15px 0; 
+    }
+  }
