@@ -1,0 +1,13 @@
+.dashboard-container {
+    text-align: center; /* Align text to the left */
+    padding: 50px;
+    width: 50%; /* Full width */
+  }
+  
+  .dashboard-container h1,
+  .dashboard-container h3,
+  .dashboard-container h4 {
+    margin: px;
+    padding: 20px 0;
+  }
+  
