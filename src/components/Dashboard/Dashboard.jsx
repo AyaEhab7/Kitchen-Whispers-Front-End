@@ -1,10 +1,12 @@
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
+import './Dashboard.css';
+
 
 const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
   return (
-    <main>
+    <main className="dashboard-container">
       <h1>Welcome to Kitchen Whispers, {user.username}</h1>
       <h3>Your Recipe Sharing Community Awaits!</h3>
 
